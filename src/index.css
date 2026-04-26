@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body {
+    color: #e5e7eb;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+}
+
+@layer components {
+  .panel {
+    @apply bg-cockpit-panel border border-cockpit-edge rounded-lg flex flex-col overflow-hidden;
+  }
+  .panel-header {
+    @apply px-4 py-2 border-b border-cockpit-edge flex items-center justify-between bg-cockpit-panel2;
+  }
+  .panel-title {
+    @apply text-xs uppercase tracking-widest text-cockpit-muted font-mono;
+  }
+  .pill {
+    @apply text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-mono;
+  }
+  .btn {
+    @apply text-xs px-3 py-1.5 rounded-md border border-cockpit-edge bg-cockpit-panel2 hover:bg-cockpit-edge transition-colors;
+  }
+  .btn-accent {
+    @apply text-xs px-3 py-1.5 rounded-md bg-cockpit-accent text-black font-medium hover:opacity-90 transition;
+  }
+  .input {
+    @apply bg-cockpit-bg border border-cockpit-edge rounded-md px-3 py-2 text-sm text-gray-100 outline-none focus:border-cockpit-accent;
+  }
+  .blink::before {
+    content: '';
+    @apply inline-block w-2 h-2 rounded-full bg-cockpit-accent mr-2 align-middle;
+    animation: blink 1.4s infinite;
+  }
+}
+
+@keyframes blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0.25; }
+}
